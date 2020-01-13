@@ -42,4 +42,9 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(User user) {
          userDao.updateById(user);
     }
+
+    @Override
+    public List<User> getquerylist() {
+        return userDao.selectList(null);
+    }
 }
