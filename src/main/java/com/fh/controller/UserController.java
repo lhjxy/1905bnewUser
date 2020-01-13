@@ -4,6 +4,8 @@ import com.fh.bean.User;
 import com.fh.service.UserService;
 import com.fh.uitl.PageBean;
 import com.fh.uitl.xiazai;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,7 @@ import java.util.UUID;
 @RestController
 @CrossOrigin
 public class UserController {
+    private final static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserService userService;
 
@@ -54,6 +57,7 @@ public class UserController {
         String remoteAddr = request.getRemoteAddr();
         user.setIpaaaa(remoteAddr);
         userService.addUserList(user);
+        LOGGER.info("这是新增方法");
         return user;
     }
 
