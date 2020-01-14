@@ -5,21 +5,23 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fh.common.Excel;
+import com.fh.common.ExcelHide;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 @TableName("user")
+@ExcelHide(title = "学生信息")
 public class User {
     @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
     @TableField("name")
-    @Excel(name="学生姓名",value = "name")
+    @Excel(name="学生姓名")
     private String name;
     @TableField("age")
-    @Excel(name="学生年龄",value = "age")
+    @Excel(name="学生年龄")
     private Integer age;
-    @Excel(name="学生生日",value = "birthday")
+    @Excel(name="学生生日")
     @TableField("birthday")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
